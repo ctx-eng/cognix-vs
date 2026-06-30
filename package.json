@@ -1,0 +1,92 @@
+{
+  "name": "cognix-vs",
+  "displayName": "Cognix VS",
+  "description": "AI coding assistant extension for Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "ctx-eng",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cognix-vs.start",
+    "onCommand:cognix-vs.askQuestion",
+    "onCommand:cognix-vs.fixCode",
+    "onCommand:cognix-vs.openPromptLibrary"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "typecheck": "tsc --noEmit -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --check \"src/**/*.ts\" \"lib/**/*.ts\" \"lib/**/*.tsx\"",
+    "format:fix": "prettier --write \"src/**/*.ts\" \"lib/**/*.ts\" \"lib/**/*.tsx\"",
+    "test": "npm run compile && node ./out/test/runTest.js",
+    "test:unit": "vitest run",
+    "storybook": "storybook dev -p 6006",
+    "test:integration": "npm run compile && node ./out/test/runIntegrationTests.js",
+    "test:e2e": "playwright test"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "cognix-vs.start",
+        "title": "Cognix VS: Start"
+      },
+      {
+        "command": "cognix-vs.askQuestion",
+        "title": "Cognix VS: Ask question"
+      },
+      {
+        "command": "cognix-vs.fixCode",
+        "title": "Cognix VS: Fix code"
+      },
+      {
+        "command": "cognix-vs.openPromptLibrary",
+        "title": "Cognix VS: Open prompt library"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Cognix VS settings",
+      "properties": {
+        "cognixVs.openAIApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API key used by Cognix VS."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@storybook/addon-essentials": "^7.0.0",
+    "@storybook/builder-vite": "^7.0.0",
+    "@storybook/cli": "^7.0.0",
+    "@storybook/react-vite": "^7.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^8.62.1",
+    "@typescript-eslint/parser": "^8.62.1",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jsdom": "^29.1.1",
+    "mocha": "^10.0.0",
+    "playwright": "^1.45.0",
+    "prettier": "^3.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.0",
+    "vitest": "^1.5.3",
+    "vsce": "^2.0.0"
+  }
+}

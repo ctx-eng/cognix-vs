@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "lib": ["es2020", "DOM"],
+    "jsx": "react-jsx",
+    "outDir": "out",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@cognix/cognix-shared": ["lib/shared/src"],
+      "@cognix/cognix-shared/*": ["lib/shared/src/*"],
+      "@cognix/prompt-editor": ["lib/prompt-editor/src"],
+      "@cognix/prompt-editor/*": ["lib/prompt-editor/src/*"]
+    },
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*", "lib/**/*", "webviews/**/*", "e2e/**/*"],
+  "exclude": ["node_modules", ".vscode-test"]
+}

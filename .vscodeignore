@@ -1,0 +1,12 @@
+node_modules
+out/test
+.vscode
+*.vsix
+**/*.map
+integration/
+src/test/
+webviews/
+.storybook/
+e2e/
+vitest.config.ts
+playwright.config.ts
